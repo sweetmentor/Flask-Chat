@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>ChatApp</h1>
     <h2><strong>Welcome on board.</strong></h2>
     <p>You are logged in as {{ logged_in_as }}</p>
     <form action="/new" method="POST">
@@ -19,12 +20,7 @@
     <p><strong>{{ message.sender }}</strong>: {{ message.body }}</p>
     {% endfor %}
     
-    <script>
-        setTimeout(function() {
-            location.reload();
-        }, 5000);
-        
-    </script>
+    
     
     
 </body>
