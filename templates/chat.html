@@ -1,27 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Home Page</title>
 </head>
+
 <body>
-    <h1>ChatApp</h1>
-    <h2><strong>Welcome on board.</strong></h2>
-    <p>You are logged in as {{ logged_in_as }}</p>
-    <form action="/new" method="POST">
+    <h1>Welcome, {{ username }}</h1>
+    {% for message in chat_messages %}
+    <p>{{ message.sender }}: {{message.body}}</p>
+    {% endfor %}
+
+    <form method="POST" action="logged_in_as">
         <input type="text" name="message" placeholder="What's happening?"/>
         <input type="hidden" name="username" value="{{logged_in_as}}"/>
         <input type="submit" value="Send"/>
     </form>
-    
-    {% for message in all_the_messages %}
-    <p><strong>{{ message.sender }}</strong>: {{ message.body }}</p>
-    {% endfor %}
-    
-    
-    
-    
+
+    <script>
+        setTimeout(function() {
+            location.reload();
+        }, 10000);
+    </script>
 </body>
+
 </html>
